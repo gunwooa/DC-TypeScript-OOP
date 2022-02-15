@@ -6,7 +6,7 @@ type Position = {
   y: number;
 };
 
-type Direction = 'up' | 'down' | 'left' | 'right';
+type Direction = 'up' | 'down' | 'left' | 'right' | 'he';
 
 const position: Position = {
   x: 0,
@@ -22,13 +22,17 @@ function move(direction: Direction) {
       position.y -= 1;
       break;
     case 'left':
-      position.x += 1;
-      break;
-    case 'right':
       position.x -= 1;
       break;
+    case 'right':
+      position.x += 1;
+      break;
+    case 'he':
+      position.x += 1;
+      break;
     default:
-      throw new Error(`unknown direction: ${direction}`);
+      const invalid: never = direction;
+      throw new Error(`unknown direction: ${invalid}`);
   }
 }
 
